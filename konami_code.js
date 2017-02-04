@@ -4,18 +4,19 @@ function init() {
   // your code here
   var index = 0
 
-  function triggerKeyDown(e) {
-  const key = parseInt(e.detail || e.which)
+  document.body.addEventListener('keydown', function(e) {
+    const key = parseInt(e.which || e.detail)
 
-  if (key === code[index]) {
-    index++
+    if (code[index] === key) {
+      index++
 
-    if (index === code.length - 1) {
-      alert("YOU DID IT!")
+      if (index === code.length - 1) {
+        alert('hurray!')
+
+        index = 0
+      }
+    } else {
       index = 0
     }
-  } else {
-    index = 0
-  }
-}
+  })
 }
